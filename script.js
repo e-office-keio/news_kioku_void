@@ -936,13 +936,13 @@ const study = lab.util.fromObject({
               {
                 "required": true,
                 "type": "html",
-                "content": "\u003Cdiv style=\"display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;\"\u003E\n  \n  \u003C!-- 動画プレイヤー --\u003E\n  \u003Cvideo id=\"video-player\" autoplay playsinline style=\"max-width: 100%; height: auto;\"\u003E\n    \u003Csource src=\"${parameters.videoURL}\" type=\"video\u002Fmp4\"\u003E\n    お使いのブラウザはビデオタグをサポートしていません。\n  \u003C\u002Fvideo\u003E\n\n  \u003C!-- 再生終了後に表示されるボタン --\u003E\n  \u003Cbutton id=\"next-btn\" style=\"display: none; margin-top: 20px; padding: 10px 24px; font-size: 16px; cursor: pointer;\"\u003E\n    次へ進む\n  \u003C\u002Fbutton\u003E\n\n\u003C\u002Fdiv\u003E",
+                "content": "\u003Cdiv style=\"display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;\"\u003E\n  \n  \u003C!-- 動画プレイヤー --\u003E\n  \u003Cvideo id=\"video-player\" autoplay playsinline style=\"max-width: 100%; height: auto;\"\u003E\n    \u003Csource src=\"${parameters.videoURL}\" type=\"video\u002Fmp4\"\u003E\n    お使いのブラウザはビデオタグをサポートしていません。\n  \u003C\u002Fvideo\u003E\n\n  \u003C!-- visibility: hidden で場所だけ確保しておく --\u003E\n  \u003Cbutton id=\"next-btn\" style=\"visibility: hidden; margin-top: 20px; padding: 10px 24px; font-size: 16px; cursor: pointer;\"\u003E\n    次へ進む\n  \u003C\u002Fbutton\u003E\n\n\u003C\u002Fdiv\u003E",
                 "name": ""
               }
             ],
             "scrollTop": true,
             "submitButtonText": "次へ",
-            "submitButtonPosition": "right",
+            "submitButtonPosition": "hidden",
             "files": {},
             "responses": {
               "": ""
@@ -951,18 +951,15 @@ const study = lab.util.fromObject({
             "messageHandlers": {
               "run": function anonymous(
               ) {
-                // 動画要素とボタン要素を取得
                 const video = this.options.el.querySelector('#video-player');
                 const nextBtn = this.options.el.querySelector('#next-btn');
 
                 if (video && nextBtn) {
-                  // 動画の再生が終了した時の処理
                   video.addEventListener('ended', () => {
-                    // ボタンを表示する
-                    nextBtn.style.display = 'inline-block';
+                    // 透明だったボタンを「可視化」する（ガタつきません）
+                    nextBtn.style.visibility = 'visible';
                   });
 
-                  // ボタンがクリックされたら lab.js の次の画面へ進む
                   nextBtn.addEventListener('click', () => {
                     this.end();
                   });
@@ -1123,13 +1120,13 @@ const study = lab.util.fromObject({
               {
                 "required": true,
                 "type": "html",
-                "content": "\u003Cdiv style=\"display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;\"\u003E\n  \n  \u003C!-- 動画プレイヤー --\u003E\n  \u003Cvideo id=\"video-player\" autoplay playsinline style=\"max-width: 100%; height: auto;\"\u003E\n    \u003Csource src=\"${parameters.videoURL}\" type=\"video\u002Fmp4\"\u003E\n    お使いのブラウザはビデオタグをサポートしていません。\n  \u003C\u002Fvideo\u003E\n\n  \u003C!-- 再生終了後に表示されるボタン --\u003E\n  \u003Cbutton id=\"next-btn\" style=\"display: none; margin-top: 20px; padding: 10px 24px; font-size: 16px; cursor: pointer;\"\u003E\n    次へ進む\n  \u003C\u002Fbutton\u003E\n\n\u003C\u002Fdiv\u003E",
+                "content": "\u003Cdiv style=\"display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;\"\u003E\n  \n  \u003C!-- 動画プレイヤー --\u003E\n  \u003Cvideo id=\"video-player\" autoplay playsinline style=\"max-width: 100%; height: auto;\"\u003E\n    \u003Csource src=\"${parameters.videoURL}\" type=\"video\u002Fmp4\"\u003E\n    お使いのブラウザはビデオタグをサポートしていません。\n  \u003C\u002Fvideo\u003E\n\n  \u003C!-- visibility: hidden で場所だけ確保しておく --\u003E\n  \u003Cbutton id=\"next-btn\" style=\"visibility: hidden; margin-top: 20px; padding: 10px 24px; font-size: 16px; cursor: pointer;\"\u003E\n    次へ進む\n  \u003C\u002Fbutton\u003E\n\n\u003C\u002Fdiv\u003E",
                 "name": ""
               }
             ],
             "scrollTop": true,
             "submitButtonText": "次へ",
-            "submitButtonPosition": "right",
+            "submitButtonPosition": "hidden",
             "files": {},
             "responses": {
               "": ""
@@ -1138,18 +1135,15 @@ const study = lab.util.fromObject({
             "messageHandlers": {
               "run": function anonymous(
               ) {
-                // 動画要素とボタン要素を取得
                 const video = this.options.el.querySelector('#video-player');
                 const nextBtn = this.options.el.querySelector('#next-btn');
 
                 if (video && nextBtn) {
-                  // 動画の再生が終了した時の処理
                   video.addEventListener('ended', () => {
-                    // ボタンを表示する
-                    nextBtn.style.display = 'inline-block';
+                    // 透明だったボタンを「可視化」する（ガタつきません）
+                    nextBtn.style.visibility = 'visible';
                   });
 
-                  // ボタンがクリックされたら lab.js の次の画面へ進む
                   nextBtn.addEventListener('click', () => {
                     this.end();
                   });
