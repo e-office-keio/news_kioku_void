@@ -936,7 +936,7 @@ const study = lab.util.fromObject({
               {
                 "required": true,
                 "type": "html",
-                "content": "\u003Cdiv style=\"text-align: center;\"\u003E\n \u003Ciframe width=\"640\" height=\"480\" src=\"${parameters.videoURL}?autoplay=1&mute=1\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003E\u003C\u002Fiframe\u003E\n \u003C\u002Fdiv\u003E",
+                "content": "\u003Cdiv\u003E\n \u003Cvideo id=\"video-player\" autoplay playsinline\u003E\n   \u003Csource src=\"${parameters.videoURL}\" type=\"video\u002Fmp4\"\u003E\n   お使いのブラウザはビデオタグをサポートしていません。\n \u003C\u002Fvideo\u003E\n\u003C\u002Fdiv\u003E\n",
                 "name": ""
               }
             ],
@@ -1103,7 +1103,7 @@ const study = lab.util.fromObject({
               {
                 "required": true,
                 "type": "html",
-                "content": "\u003Cdiv style=\"text-align: center;\"\u003E\n \u003Ciframe width=\"640\" height=\"480\" src=\"${parameters.videoURL}?autoplay=1&mute=1\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen\u003E\u003C\u002Fiframe\u003E\n \u003C\u002Fdiv\u003E",
+                "content": "\u003Cdiv\u003E\n \u003Cvideo id=\"video-player\" autoplay playsinline\u003E\n   \u003Csource src=\"${parameters.videoURL}\" type=\"video\u002Fmp4\"\u003E\n   お使いのブラウザはビデオタグをサポートしていません。\n \u003C\u002Fvideo\u003E\n\u003C\u002Fdiv\u003E\n",
                 "name": ""
               }
             ],
