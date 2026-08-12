@@ -2665,7 +2665,7 @@ if (ds && ds.data) {
           "attributes": {
             "type": "number",
             "min": "20",
-            "max": "39"
+            "max": "59"
           },
           "name": "age"
         }
