@@ -45,7 +45,7 @@ const study = lab.util.fromObject({
         ) {
           //Start画面で参加者IDを乱数で生成
           //Scriptsを選び，before: prepare
-          const digits = 10;
+          const digits = 7;
           const participantID = this.random.range(10 ** digits, 10 ** (digits + 1));
 
           this.parameters.participantID = participantID;
@@ -72,7 +72,7 @@ const study = lab.util.fromObject({
         {
           "required": true,
           "type": "html",
-          "content": "\u003Cdiv style=\"max-width: none; width: 100%\"\u003E\n  \u003Cul\u003E\n\u003Cli\u003E\u003Cstrong\u003E【目的】\u003C\u002Fstrong\u003E　この実験は、ニュースについての記憶を調べるためのものです。\n\u003Cli\u003E\u003Cstrong\u003E【所要時間】\u003C\u002Fstrong\u003E　この実験はおおよそ10分かかります。\n\u003Cli\u003E\u003Cstrong\u003E【リスク】\u003C\u002Fstrong\u003E　緊張したり、疲労を感じる可能性があります。\n\u003Cli\u003E\u003Cstrong\u003E【リスクへの対策】\u003C\u002Fstrong\u003E　体調がわるくなった場合には、参加を取りやめてください。\n\u003Cli\u003E\u003Cstrong\u003E【謝礼】\u003C\u002Fstrong\u003E　この実験への参加に対する謝金は200円です。\n\u003Cli\u003E\u003Cstrong\u003E【個人情報】\u003C\u002Fstrong\u003E　この実験では、個人を特定できる情報は一切収集しません。\n\u003Cli\u003E\u003Cstrong\u003E【データの利用】\u003C\u002Fstrong\u003E　この実験で得られたデータは、学術的な目的にのみ利用します。\n\u003Cli\u003E\u003Cstrong\u003E【データの廃棄】\u003C\u002Fstrong\u003E　この実験で得られたデータは、10年後に廃棄します。\n\u003C\u002Ful\u003E\n\u003C\u002Fdiv\u003E",
+          "content": "\u003Cdiv style=\"max-width: none; width: 100%\"\u003E\n  \u003Cul\u003E\n\u003Cli\u003E\u003Cstrong\u003E【目的】\u003C\u002Fstrong\u003E　この実験は、ニュースについての記憶を調べるためのものです。\n\u003Cli\u003E\u003Cstrong\u003E【所要時間】\u003C\u002Fstrong\u003E　この実験はおおよそ10分かかります。\n\u003Cli\u003E\u003Cstrong\u003E【リスク】\u003C\u002Fstrong\u003E　緊張したり、疲労を感じる可能性があります。\n\u003Cli\u003E\u003Cstrong\u003E【リスクへの対策】\u003C\u002Fstrong\u003E　体調がわるくなった場合には、参加を取りやめてください。\n\u003Cli\u003E\u003Cstrong\u003E【謝礼】\u003C\u002Fstrong\u003E　この実験への参加に対する謝金は150円です。\n\u003Cli\u003E\u003Cstrong\u003E【個人情報】\u003C\u002Fstrong\u003E　この実験では、個人を特定できる情報は一切収集しません。\n\u003Cli\u003E\u003Cstrong\u003E【データの利用】\u003C\u002Fstrong\u003E　この実験で得られたデータは、学術的な目的にのみ利用します。\n\u003Cli\u003E\u003Cstrong\u003E【データの廃棄】\u003C\u002Fstrong\u003E　この実験で得られたデータは、10年後に廃棄します。\n\u003C\u002Ful\u003E\n\u003C\u002Fdiv\u003E",
           "name": ""
         },
         {
@@ -560,7 +560,7 @@ const study = lab.util.fromObject({
             ],
             "scrollTop": true,
             "submitButtonText": "次へ",
-            "submitButtonPosition": "right",
+            "submitButtonPosition": "hidden",
             "files": {},
             "responses": {
               "": ""
@@ -754,7 +754,7 @@ const study = lab.util.fromObject({
             ],
             "scrollTop": true,
             "submitButtonText": "次へ",
-            "submitButtonPosition": "right",
+            "submitButtonPosition": "hidden",
             "files": {},
             "responses": {
               "": ""
@@ -2125,7 +2125,8 @@ const study = lab.util.fromObject({
 
               }
             },
-            "title": "Feedback"
+            "title": "Feedback",
+            "skip": true
           },
           {
             "type": "lab.canvas.Screen",
@@ -2429,7 +2430,8 @@ const study = lab.util.fromObject({
 
               }
             },
-            "title": "Feedback"
+            "title": "Feedback",
+            "skip": true
           },
           {
             "type": "lab.canvas.Screen",
@@ -2743,7 +2745,7 @@ const study = lab.util.fromObject({
       "items": [
         {
           "type": "text",
-          "content": "お疲れ様でした！この度は、実験にご参加いただき、誠にありがとうございます。\u003Cbr\u003E\n\u003Cstrong\u003Eデータはすでに保存されています\u003C\u002Fstrong\u003Eので、このままブラウザを閉じていただいても大丈夫です。",
+          "content": "お疲れ様でした！この度は、実験にご参加いただき、誠にありがとうございます。\u003Cbr\u003E\u003Cbr\u003E\nランサーズの作業画面に戻り、\u003Cstrong\u003E${this.state.participantID}\u003C\u002Fstrong\u003Eを入力して作業を完了させてください。\u003Cbr\u003E\u003Cbr\u003E\n\u003Cstrong\u003Eデータはすでに保存されています\u003C\u002Fstrong\u003Eので、このままブラウザを閉じていただいても大丈夫です。",
           "title": "実験はこれで終了です。"
         }
       ],
