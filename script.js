@@ -47,21 +47,21 @@ const study = lab.util.fromObject({
       "parameters": {},
       "messageHandlers": {
         "before:prepare": function anonymous(
-) {
-//Start画面で参加者IDを乱数で生成
-//Scriptsを選び，before: prepare
-const digits = 7;
-const participantID = this.random.range(10**digits, 10**(digits+1));
+        ) {
+          //Start画面で参加者IDを乱数で生成
+          //Scriptsを選び，before: prepare
+          const digits = 7;
+          const participantID = this.random.range(10 ** digits, 10 ** (digits + 1));
 
-this.parameters.participantID = participantID;
+          this.parameters.participantID = participantID;
 
-// 参加者IDを6で割った余りを計算（0〜5になる）
-const id = Number(this.parameters.participantID);
+          // 参加者IDを6で割った余りを計算（0〜5になる）
+          const id = Number(this.parameters.participantID);
 
-// conditionに実験集団の番号をセットする
-this.state.condition = (id % 6) + 1;
+          // conditionに実験集団の番号をセットする
+          this.state.condition = (id % 6) + 1;
 
-}
+        }
       },
       "title": "Intro"
     },
@@ -194,23 +194,23 @@ this.state.condition = (id % 6) + 1;
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-// 前回のコードのままでOKです！
-const display = document.getElementById("simple-timer");
-let count = 3;
+              ) {
+                // 前回のコードのままでOKです！
+                const display = document.getElementById("simple-timer");
+                let count = 3;
 
-const intervalId = setInterval(() => {
-    count--;
-    
-    if (count >= 0 && display) {
-        display.textContent = count; // ここで数字だけが書き換わります
-    }
-    
-    if (count <= 0) {
-        clearInterval(intervalId);
-    }
-}, 1000);
-}
+                const intervalId = setInterval(() => {
+                  count--;
+
+                  if (count >= 0 && display) {
+                    display.textContent = count; // ここで数字だけが書き換わります
+                  }
+
+                  if (count <= 0) {
+                    clearInterval(intervalId);
+                  }
+                }, 1000);
+              }
             },
             "title": "countdown",
             "timeout": "3000"
@@ -360,23 +360,23 @@ const intervalId = setInterval(() => {
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-// 前回のコードのままでOKです！
-const display = document.getElementById("simple-timer");
-let count = 3;
+              ) {
+                // 前回のコードのままでOKです！
+                const display = document.getElementById("simple-timer");
+                let count = 3;
 
-const intervalId = setInterval(() => {
-    count--;
-    
-    if (count >= 0 && display) {
-        display.textContent = count; // ここで数字だけが書き換わります
-    }
-    
-    if (count <= 0) {
-        clearInterval(intervalId);
-    }
-}, 1000);
-}
+                const intervalId = setInterval(() => {
+                  count--;
+
+                  if (count >= 0 && display) {
+                    display.textContent = count; // ここで数字だけが書き換わります
+                  }
+
+                  if (count <= 0) {
+                    clearInterval(intervalId);
+                  }
+                }, 1000);
+              }
             },
             "title": "countdown",
             "timeout": "3000"
@@ -529,23 +529,23 @@ const intervalId = setInterval(() => {
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-// 前回のコードのままでOKです！
-const display = document.getElementById("simple-timer");
-let count = 3;
+              ) {
+                // 前回のコードのままでOKです！
+                const display = document.getElementById("simple-timer");
+                let count = 3;
 
-const intervalId = setInterval(() => {
-    count--;
-    
-    if (count >= 0 && display) {
-        display.textContent = count; // ここで数字だけが書き換わります
-    }
-    
-    if (count <= 0) {
-        clearInterval(intervalId);
-    }
-}, 1000);
-}
+                const intervalId = setInterval(() => {
+                  count--;
+
+                  if (count >= 0 && display) {
+                    display.textContent = count; // ここで数字だけが書き換わります
+                  }
+
+                  if (count <= 0) {
+                    clearInterval(intervalId);
+                  }
+                }, 1000);
+              }
             },
             "title": "countdown",
             "timeout": "3000"
@@ -573,25 +573,25 @@ const intervalId = setInterval(() => {
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-// 1. 今の画面（this）を、JavaScript全体から触れる変数（window.currentScreen）に避難させる
-window.currentScreen = this;
+              ) {
+                // 1. 今の画面（this）を、JavaScript全体から触れる変数（window.currentScreen）に避難させる
+                window.currentScreen = this;
 
-// 2. 音声プレイヤーをIDで取得
-const audio = document.getElementById("audio-player");
+                // 2. 音声プレイヤーをIDで取得
+                const audio = document.getElementById("audio-player");
 
-if (audio) {
-    // 3. 音声の再生が「終了（ended）」した瞬間を監視
-    audio.addEventListener("ended", () => {
-        console.log("音声終了：次の画面へ安全に遷移します。");
-        
-        // 4. 避難させておいた画面の情報を使って、lab.js公式の終了関数を呼び出す
-        if (window.currentScreen && typeof window.currentScreen.end === "function") {
-            window.currentScreen.end();
-        }
-    });
-}
-}
+                if (audio) {
+                  // 3. 音声の再生が「終了（ended）」した瞬間を監視
+                  audio.addEventListener("ended", () => {
+                    console.log("音声終了：次の画面へ安全に遷移します。");
+
+                    // 4. 避難させておいた画面の情報を使って、lab.js公式の終了関数を呼び出す
+                    if (window.currentScreen && typeof window.currentScreen.end === "function") {
+                      window.currentScreen.end();
+                    }
+                  });
+                }
+              }
             },
             "title": "ShowNewsAudio"
           },
@@ -723,23 +723,23 @@ if (audio) {
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-// 前回のコードのままでOKです！
-const display = document.getElementById("simple-timer");
-let count = 3;
+              ) {
+                // 前回のコードのままでOKです！
+                const display = document.getElementById("simple-timer");
+                let count = 3;
 
-const intervalId = setInterval(() => {
-    count--;
-    
-    if (count >= 0 && display) {
-        display.textContent = count; // ここで数字だけが書き換わります
-    }
-    
-    if (count <= 0) {
-        clearInterval(intervalId);
-    }
-}, 1000);
-}
+                const intervalId = setInterval(() => {
+                  count--;
+
+                  if (count >= 0 && display) {
+                    display.textContent = count; // ここで数字だけが書き換わります
+                  }
+
+                  if (count <= 0) {
+                    clearInterval(intervalId);
+                  }
+                }, 1000);
+              }
             },
             "title": "countdown",
             "timeout": "3000"
@@ -767,25 +767,25 @@ const intervalId = setInterval(() => {
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-// 1. 今の画面（this）を、JavaScript全体から触れる変数（window.currentScreen）に避難させる
-window.currentScreen = this;
+              ) {
+                // 1. 今の画面（this）を、JavaScript全体から触れる変数（window.currentScreen）に避難させる
+                window.currentScreen = this;
 
-// 2. 音声プレイヤーをIDで取得
-const audio = document.getElementById("audio-player");
+                // 2. 音声プレイヤーをIDで取得
+                const audio = document.getElementById("audio-player");
 
-if (audio) {
-    // 3. 音声の再生が「終了（ended）」した瞬間を監視
-    audio.addEventListener("ended", () => {
-        console.log("音声終了：次の画面へ安全に遷移します。");
-        
-        // 4. 避難させておいた画面の情報を使って、lab.js公式の終了関数を呼び出す
-        if (window.currentScreen && typeof window.currentScreen.end === "function") {
-            window.currentScreen.end();
-        }
-    });
-}
-}
+                if (audio) {
+                  // 3. 音声の再生が「終了（ended）」した瞬間を監視
+                  audio.addEventListener("ended", () => {
+                    console.log("音声終了：次の画面へ安全に遷移します。");
+
+                    // 4. 避難させておいた画面の情報を使って、lab.js公式の終了関数を呼び出す
+                    if (window.currentScreen && typeof window.currentScreen.end === "function") {
+                      window.currentScreen.end();
+                    }
+                  });
+                }
+              }
             },
             "title": "ShowNewsAudio"
           },
@@ -864,11 +864,11 @@ if (audio) {
       "type": "lab.flow.Loop",
       "templateParameters": [
         {
-          "videoURL": "https:\u002F\u002Fe-office-keio.github.io\u002Fnews_kioku\u002FMayFes1.mp4",
+          "videoURL": "https:\u002F\u002Fe-office-keio.github.io\u002Fnews_kioku_void\u002FMayFes1.mp4",
           "": ""
         },
         {
-          "videoURL": "https:\u002F\u002Fe-office-keio.github.io\u002Fnews_kioku\u002FNorthK1.mp4",
+          "videoURL": "https:\u002F\u002Fe-office-keio.github.io\u002Fnews_kioku_void\u002FNorthK1.mp4",
           "": ""
         }
       ],
@@ -914,23 +914,23 @@ if (audio) {
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-// 前回のコードのままでOKです！
-const display = document.getElementById("simple-timer");
-let count = 3;
+              ) {
+                // 前回のコードのままでOKです！
+                const display = document.getElementById("simple-timer");
+                let count = 3;
 
-const intervalId = setInterval(() => {
-    count--;
-    
-    if (count >= 0 && display) {
-        display.textContent = count; // ここで数字だけが書き換わります
-    }
-    
-    if (count <= 0) {
-        clearInterval(intervalId);
-    }
-}, 1000);
-}
+                const intervalId = setInterval(() => {
+                  count--;
+
+                  if (count >= 0 && display) {
+                    display.textContent = count; // ここで数字だけが書き換わります
+                  }
+
+                  if (count <= 0) {
+                    clearInterval(intervalId);
+                  }
+                }, 1000);
+              }
             },
             "title": "countdown",
             "timeout": "3000"
@@ -955,21 +955,21 @@ const intervalId = setInterval(() => {
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-const video = this.options.el.querySelector('#video-player');
-const nextBtn = this.options.el.querySelector('#next-btn');
+              ) {
+                const video = this.options.el.querySelector('#video-player');
+                const nextBtn = this.options.el.querySelector('#next-btn');
 
-if (video && nextBtn) {
-  video.addEventListener('ended', () => {
-    // 透明だったボタンを「可視化」する（ガタつきません）
-    nextBtn.style.visibility = 'visible';
-  });
+                if (video && nextBtn) {
+                  video.addEventListener('ended', () => {
+                    // 透明だったボタンを「可視化」する（ガタつきません）
+                    nextBtn.style.visibility = 'visible';
+                  });
 
-  nextBtn.addEventListener('click', () => {
-    this.end();
-  });
-}
-}
+                  nextBtn.addEventListener('click', () => {
+                    this.end();
+                  });
+                }
+              }
             },
             "title": "ShowNewsVideo"
           },
@@ -1048,11 +1048,11 @@ if (video && nextBtn) {
       "type": "lab.flow.Loop",
       "templateParameters": [
         {
-          "videoURL": "https:\u002F\u002Fe-office-keio.github.io\u002Fnews_kioku\u002FMayFes2.mp4",
+          "videoURL": "https:\u002F\u002Fe-office-keio.github.io\u002Fnews_kioku_void\u002FMayFes2.mp4",
           "": ""
         },
         {
-          "videoURL": "https:\u002F\u002Fe-office-keio.github.io\u002Fnews_kioku\u002FNorthK2.mp4",
+          "videoURL": "https:\u002F\u002Fe-office-keio.github.io\u002Fnews_kioku_void\u002FNorthK2.mp4",
           "": ""
         }
       ],
@@ -1098,23 +1098,23 @@ if (video && nextBtn) {
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-// 指定の秒数をカウントダウンする
-const display = document.getElementById("simple-timer");
-let count = 3;//指定の秒数
+              ) {
+                // 指定の秒数をカウントダウンする
+                const display = document.getElementById("simple-timer");
+                let count = 3;//指定の秒数
 
-const intervalId = setInterval(() => {
-    count--;
-    
-    if (count >= 0 && display) {
-        display.textContent = count; // ここで数字だけが書き換わります
-    }
-    
-    if (count <= 0) {
-        clearInterval(intervalId);
-    }
-}, 1000);
-}
+                const intervalId = setInterval(() => {
+                  count--;
+
+                  if (count >= 0 && display) {
+                    display.textContent = count; // ここで数字だけが書き換わります
+                  }
+
+                  if (count <= 0) {
+                    clearInterval(intervalId);
+                  }
+                }, 1000);
+              }
             },
             "title": "countdown",
             "timeout": "3000"
@@ -1139,21 +1139,21 @@ const intervalId = setInterval(() => {
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-const video = this.options.el.querySelector('#video-player');
-const nextBtn = this.options.el.querySelector('#next-btn');
+              ) {
+                const video = this.options.el.querySelector('#video-player');
+                const nextBtn = this.options.el.querySelector('#next-btn');
 
-if (video && nextBtn) {
-  video.addEventListener('ended', () => {
-    // 透明だったボタンを「可視化」する（ガタつきません）
-    nextBtn.style.visibility = 'visible';
-  });
+                if (video && nextBtn) {
+                  video.addEventListener('ended', () => {
+                    // 透明だったボタンを「可視化」する（ガタつきません）
+                    nextBtn.style.visibility = 'visible';
+                  });
 
-  nextBtn.addEventListener('click', () => {
-    this.end();
-  });
-}
-}
+                  nextBtn.addEventListener('click', () => {
+                    this.end();
+                  });
+                }
+              }
             },
             "title": "ShowNewsVideo"
           },
@@ -1274,23 +1274,23 @@ if (video && nextBtn) {
       "parameters": {},
       "messageHandlers": {
         "run": function anonymous(
-) {
-// 前回のコードのままでOKです！
-const display = document.getElementById("simple-timer");
-let count = 5;
+        ) {
+          // 前回のコードのままでOKです！
+          const display = document.getElementById("simple-timer");
+          let count = 5;
 
-const intervalId = setInterval(() => {
-    count--;
-    
-    if (count >= 0 && display) {
-        display.textContent = count; // ここで数字だけが書き換わります
-    }
-    
-    if (count <= 0) {
-        clearInterval(intervalId);
-    }
-}, 1000);
-}
+          const intervalId = setInterval(() => {
+            count--;
+
+            if (count >= 0 && display) {
+              display.textContent = count; // ここで数字だけが書き換わります
+            }
+
+            if (count <= 0) {
+              clearInterval(intervalId);
+            }
+          }, 1000);
+        }
       },
       "title": "Standby",
       "timeout": "5000"
@@ -1357,39 +1357,39 @@ const intervalId = setInterval(() => {
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-// ==========================================
-// 1. 変数と要素の定義（★ここを修正します）
-// ==========================================
-let timeLeft = 5; //制限時間は５秒
+              ) {
+                // ==========================================
+                // 1. 変数と要素の定義（★ここを修正します）
+                // ==========================================
+                let timeLeft = 5; //制限時間は５秒
 
-const countdownArea = document.getElementById('countdown-area');
-const countdownNumber = document.getElementById('countdown-number');
-const choiceArea = document.getElementById('choice-area');
+                const countdownArea = document.getElementById('countdown-area');
+                const countdownNumber = document.getElementById('countdown-number');
+                const choiceArea = document.getElementById('choice-area');
 
-// =============================
-// 2. カウントダウンタイマーの設定
-// =============================
-const timer = setInterval(() => {
-  timeLeft--;
+                // =============================
+                // 2. カウントダウンタイマーの設定
+                // =============================
+                const timer = setInterval(() => {
+                  timeLeft--;
 
-  if (timeLeft <= 3 && timeLeft > 0) {
-    countdownArea.style.display = 'block'; 
-    countdownNumber.innerText = timeLeft; 
-  }
+                  if (timeLeft <= 3 && timeLeft > 0) {
+                    countdownArea.style.display = 'block';
+                    countdownNumber.innerText = timeLeft;
+                  }
 
-  if (timeLeft <= 0) {
-    clearInterval(timer);
-    this.data.correct = false;
-  
-    // 💡【追加】タイマーを確実に無効化し、次の画面への連鎖を防ぐ
-    this.trial.ended_on = 'timeout'; 
-  
-    this.end();
-  }
-}, 1000);
+                  if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    this.data.correct = false;
 
-}
+                    // 💡【追加】タイマーを確実に無効化し、次の画面への連鎖を防ぐ
+                    this.trial.ended_on = 'timeout';
+
+                    this.end();
+                  }
+                }, 1000);
+
+              }
             },
             "title": "ShowWord_P",
             "timeout": "5000",
@@ -1433,45 +1433,45 @@ const timer = setInterval(() => {
       "parameters": {},
       "messageHandlers": {
         "before:prepare": function anonymous(
-) {
-// ==========================================
-// Result_P画面: 練習の正解数 ＆ 平均反応時間の集計
-// ==========================================
+        ) {
+          // ==========================================
+          // Result_P画面: 練習の正解数 ＆ 平均反応時間の集計
+          // ==========================================
 
-const ds = this.options.datastore;
+          const ds = this.options.datastore;
 
-// ① 初期値を state にセット
-this.state.correct_count = 0;
-this.state.total_count = 0;
-this.state.mean_rt = "0.00";
+          // ① 初期値を state にセット
+          this.state.correct_count = 0;
+          this.state.total_count = 0;
+          this.state.mean_rt = "0.00";
 
-if (ds && ds.data) {
-  // ② 条件を「ShowWord_P」（練習用コンポーネント）に絞る
-  const practiceRows = ds.data.filter(r => {
-    return r.sender === 'ShowWord_P' && r.response !== 'none';
-  });
+          if (ds && ds.data) {
+            // ② 条件を「ShowWord_P」（練習用コンポーネント）に絞る
+            const practiceRows = ds.data.filter(r => {
+              return r.sender === 'ShowWord_P' && r.response !== 'none';
+            });
 
-  // ③ 練習データが存在する場合のみ、集計処理を行う
-  if (practiceRows.length > 0) {
-    this.state.total_count = practiceRows.length;
+            // ③ 練習データが存在する場合のみ、集計処理を行う
+            if (practiceRows.length > 0) {
+              this.state.total_count = practiceRows.length;
 
-    // 1. 正解数をカウント
-    const correctRows = practiceRows.filter(r => {
-      return r.correct === true || r.correct === 'true' || r.correct === 1 || r.correct === '1';
-    });
-    this.state.correct_count = correctRows.length;
+              // 1. 正解数をカウント
+              const correctRows = practiceRows.filter(r => {
+                return r.correct === true || r.correct === 'true' || r.correct === 1 || r.correct === '1';
+              });
+              this.state.correct_count = correctRows.length;
 
-    // 2. 平均反応時間(duration)を計算
-    const totalRt = practiceRows.reduce((sum, r) => sum + Number(r.duration || 0), 0);
-    const meanRtMs = totalRt / practiceRows.length; // ミリ秒
-    
-    // 秒単位に変換
-    const meanRtSec = meanRtMs / 1000; 
-    
-    this.state.mean_rt = meanRtSec.toFixed(2); // 小数点2桁の秒数
-  }
-}
-}
+              // 2. 平均反応時間(duration)を計算
+              const totalRt = practiceRows.reduce((sum, r) => sum + Number(r.duration || 0), 0);
+              const meanRtMs = totalRt / practiceRows.length; // ミリ秒
+
+              // 秒単位に変換
+              const meanRtSec = meanRtMs / 1000;
+
+              this.state.mean_rt = meanRtSec.toFixed(2); // 小数点2桁の秒数
+            }
+          }
+        }
       },
       "title": "Result_P",
       "tardy": true
@@ -1516,23 +1516,23 @@ if (ds && ds.data) {
       "parameters": {},
       "messageHandlers": {
         "run": function anonymous(
-) {
-// 前回のコードのままでOKです！
-const display = document.getElementById("simple-timer");
-let count = 3;
+        ) {
+          // 前回のコードのままでOKです！
+          const display = document.getElementById("simple-timer");
+          let count = 3;
 
-const intervalId = setInterval(() => {
-    count--;
-    
-    if (count >= 0 && display) {
-        display.textContent = count; // ここで数字だけが書き換わります
-    }
-    
-    if (count <= 0) {
-        clearInterval(intervalId);
-    }
-}, 1000);
-}
+          const intervalId = setInterval(() => {
+            count--;
+
+            if (count >= 0 && display) {
+              display.textContent = count; // ここで数字だけが書き換わります
+            }
+
+            if (count <= 0) {
+              clearInterval(intervalId);
+            }
+          }, 1000);
+        }
       },
       "title": "Standby",
       "timeout": "3000"
@@ -1703,39 +1703,39 @@ const intervalId = setInterval(() => {
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-// ==========================================
-// 1. 変数と要素の定義（★ここを修正します）
-// ==========================================
-let timeLeft = 5; //制限時間は５秒
+              ) {
+                // ==========================================
+                // 1. 変数と要素の定義（★ここを修正します）
+                // ==========================================
+                let timeLeft = 5; //制限時間は５秒
 
-const countdownArea = document.getElementById('countdown-area');
-const countdownNumber = document.getElementById('countdown-number');
-const choiceArea = document.getElementById('choice-area');
+                const countdownArea = document.getElementById('countdown-area');
+                const countdownNumber = document.getElementById('countdown-number');
+                const choiceArea = document.getElementById('choice-area');
 
-// =============================
-// 2. カウントダウンタイマーの設定
-// =============================
-const timer = setInterval(() => {
-  timeLeft--;
+                // =============================
+                // 2. カウントダウンタイマーの設定
+                // =============================
+                const timer = setInterval(() => {
+                  timeLeft--;
 
-  if (timeLeft <= 3 && timeLeft > 0) {
-    countdownArea.style.display = 'block'; 
-    countdownNumber.innerText = timeLeft; 
-  }
+                  if (timeLeft <= 3 && timeLeft > 0) {
+                    countdownArea.style.display = 'block';
+                    countdownNumber.innerText = timeLeft;
+                  }
 
-  if (timeLeft <= 0) {
-    clearInterval(timer);
-    this.data.correct = false;
-  
-    // 💡【追加】タイマーを確実に無効化し、次の画面への連鎖を防ぐ
-    this.trial.ended_on = 'timeout'; 
-  
-    this.end();
-  }
-}, 1000);
+                  if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    this.data.correct = false;
 
-}
+                    // 💡【追加】タイマーを確実に無効化し、次の画面への連鎖を防ぐ
+                    this.trial.ended_on = 'timeout';
+
+                    this.end();
+                  }
+                }, 1000);
+
+              }
             },
             "title": "ShowWord_H",
             "timeout": "5000",
@@ -1778,46 +1778,46 @@ const timer = setInterval(() => {
       "parameters": {},
       "messageHandlers": {
         "before:prepare": function anonymous(
-) {
-// ==========================================
-// Result画面: 本番の正解数 ＆ 平均反応時間の集計
-// ==========================================
+        ) {
+          // ==========================================
+          // Result画面: 本番の正解数 ＆ 平均反応時間の集計
+          // ==========================================
 
-const ds = this.options.datastore;
+          const ds = this.options.datastore;
 
-// ① 最初に必ず初期値を state にセット
-this.state.correct_count = 0;
-this.state.total_count = 0;
-this.state.mean_rt = "0.00";
+          // ① 最初に必ず初期値を state にセット
+          this.state.correct_count = 0;
+          this.state.total_count = 0;
+          this.state.mean_rt = "0.00";
 
-if (ds && ds.data) {
-  // ② 条件を「ShowWord_H」だけに絞る（pathの条件を外す、または緩める）
-  const honbanRows = ds.data.filter(r => {
-    // 刺激が表示されたコンポーネント名が一致し、かつタイムアウト(none)していない行
-    return r.sender === 'ShowWord_H' && r.response !== 'none';
-  });
+          if (ds && ds.data) {
+            // ② 条件を「ShowWord_H」だけに絞る（pathの条件を外す、または緩める）
+            const honbanRows = ds.data.filter(r => {
+              // 刺激が表示されたコンポーネント名が一致し、かつタイムアウト(none)していない行
+              return r.sender === 'ShowWord_H' && r.response !== 'none';
+            });
 
-  // ③ 本番データが存在する場合のみ、集計処理を行う
-  if (honbanRows.length > 0) {
-    this.state.total_count = honbanRows.length;
+            // ③ 本番データが存在する場合のみ、集計処理を行う
+            if (honbanRows.length > 0) {
+              this.state.total_count = honbanRows.length;
 
-    // 1. 正解数をカウント
-    const correctRows = honbanRows.filter(r => {
-      return r.correct === true || r.correct === 'true' || r.correct === 1 || r.correct === '1';
-    });
-    this.state.correct_count = correctRows.length;
+              // 1. 正解数をカウント
+              const correctRows = honbanRows.filter(r => {
+                return r.correct === true || r.correct === 'true' || r.correct === 1 || r.correct === '1';
+              });
+              this.state.correct_count = correctRows.length;
 
-   // 2. 平均反応時間(duration)を計算
-    const totalRt = honbanRows.reduce((sum, r) => sum + Number(r.duration || 0), 0);
-    const meanRtMs = totalRt / honbanRows.length; // 一旦ミリ秒で計算
-    
-    // ミリ秒を1000で割って「秒」に変換（小数点以下2桁にする）
-    const meanRtSec = meanRtMs / 1000; 
-    
-    this.state.mean_rt = meanRtSec.toFixed(2); // 秒単位でstateに格納
-  }
-}
-}
+              // 2. 平均反応時間(duration)を計算
+              const totalRt = honbanRows.reduce((sum, r) => sum + Number(r.duration || 0), 0);
+              const meanRtMs = totalRt / honbanRows.length; // 一旦ミリ秒で計算
+
+              // ミリ秒を1000で割って「秒」に変換（小数点以下2桁にする）
+              const meanRtSec = meanRtMs / 1000;
+
+              this.state.mean_rt = meanRtSec.toFixed(2); // 秒単位でstateに格納
+            }
+          }
+        }
       },
       "title": "Result_H",
       "tardy": true
@@ -2013,67 +2013,67 @@ if (ds && ds.data) {
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-// ==========================================
-// 1. 変数と要素の定義（★ここを修正します）
-// ==========================================
-let timeLeft = 10; 
+              ) {
+                // ==========================================
+                // 1. 変数と要素の定義（★ここを修正します）
+                // ==========================================
+                let timeLeft = 10;
 
-const countdownArea = document.getElementById('countdown-area');
-const countdownNumber = document.getElementById('countdown-number');
-const choiceArea = document.getElementById('choice-area');
-const radios = choiceArea.querySelectorAll('input[type="radio"]');
-const quizCounter = document.getElementById('quiz-counter');
+                const countdownArea = document.getElementById('countdown-area');
+                const countdownNumber = document.getElementById('countdown-number');
+                const choiceArea = document.getElementById('choice-area');
+                const radios = choiceArea.querySelectorAll('input[type="radio"]');
+                const quizCounter = document.getElementById('quiz-counter');
 
-// 💡 実験全体で使うカウンターがまだ無ければ「0」で作る
-if (typeof window.globalQuizCount === 'undefined') {
-  window.globalQuizCount = 0;
-}
+                // 💡 実験全体で使うカウンターがまだ無ければ「0」で作る
+                if (typeof window.globalQuizCount === 'undefined') {
+                  window.globalQuizCount = 0;
+                }
 
-// 画面が表示されるたびに、カウンターを「+1」する
-window.globalQuizCount++;
+                // 画面が表示されるたびに、カウンターを「+1」する
+                window.globalQuizCount++;
 
-// 画面に「◯問目」と表示
-quizCounter.innerText = `${window.globalQuizCount}問目`;
+                // 画面に「◯問目」と表示
+                quizCounter.innerText = `${window.globalQuizCount}問目`;
 
 
-// ==========================================
-// 2. カウントダウンタイマーの設定（ここから下は変更なし）
-// ==========================================
-const timer = setInterval(() => {
-  timeLeft--;
+                // ==========================================
+                // 2. カウントダウンタイマーの設定（ここから下は変更なし）
+                // ==========================================
+                const timer = setInterval(() => {
+                  timeLeft--;
 
-  if (timeLeft <= 3 && timeLeft > 0) {
-    countdownArea.style.display = 'block'; 
-    countdownNumber.innerText = timeLeft; 
-  }
+                  if (timeLeft <= 3 && timeLeft > 0) {
+                    countdownArea.style.display = 'block';
+                    countdownNumber.innerText = timeLeft;
+                  }
 
-  if (timeLeft <= 0) {
-    clearInterval(timer);
-    this.data.correct = false; 
-    this.end(); 
-  }
-}, 1000);
+                  if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    this.data.correct = false;
+                    this.end();
+                  }
+                }, 1000);
 
-// ==========================================
-// 3. 選択肢（⭕️/❌️）がクリックされた時の処理（変更なし）
-// ==========================================
-radios.forEach(radio => {
-  radio.addEventListener('click', (event) => {
-    clearInterval(timer);
+                // ==========================================
+                // 3. 選択肢（⭕️/❌️）がクリックされた時の処理（変更なし）
+                // ==========================================
+                radios.forEach(radio => {
+                  radio.addEventListener('click', (event) => {
+                    clearInterval(timer);
 
-    const userAnswer = event.target.value;
-    this.data.response = userAnswer;
+                    const userAnswer = event.target.value;
+                    this.data.response = userAnswer;
 
-    const correctAnswer = this.parameters.seikai; 
-    this.data.correct = (userAnswer === correctAnswer); 
+                    const correctAnswer = this.parameters.seikai;
+                    this.data.correct = (userAnswer === correctAnswer);
 
-    setTimeout(() => {
-      this.end();
-    }, 150);
-  });
-});
-}
+                    setTimeout(() => {
+                      this.end();
+                    }, 150);
+                  });
+                });
+              }
             },
             "title": "Showquiz",
             "timeout": "10000",
@@ -2102,33 +2102,33 @@ radios.forEach(radio => {
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-// ==========================================
-// 1. 直前の画面の正誤判定を取得
-// ==========================================
-// lab.jsが保存した一番最後の試行データ（正誤）を確認します
-const isCorrect = this.state.correct;
+              ) {
+                // ==========================================
+                // 1. 直前の画面の正誤判定を取得
+                // ==========================================
+                // lab.jsが保存した一番最後の試行データ（正誤）を確認します
+                const isCorrect = this.state.correct;
 
-const correctArea = document.getElementById('feedback-correct');
-const incorrectArea = document.getElementById('feedback-incorrect');
+                const correctArea = document.getElementById('feedback-correct');
+                const incorrectArea = document.getElementById('feedback-incorrect');
 
-// ==========================================
-// 2. 判定に合わせて画面の表示を切り替え
-// ==========================================
-if (isCorrect === true) {
-  correctArea.style.display = 'block';   // 正解を表示
-} else {
-  incorrectArea.style.display = 'block'; // 不正解（または時間切れ）を表示
-}
+                // ==========================================
+                // 2. 判定に合わせて画面の表示を切り替え
+                // ==========================================
+                if (isCorrect === true) {
+                  correctArea.style.display = 'block';   // 正解を表示
+                } else {
+                  incorrectArea.style.display = 'block'; // 不正解（または時間切れ）を表示
+                }
 
-// ==========================================
-// 3. 0.5秒後に自動で次の画面（次の問題）へ進む
-// ==========================================
-setTimeout(() => {
-  this.end();
-}, 500); // 1000ミリ秒 = 1秒（長さを変えたい場合はここを調整してください）
+                // ==========================================
+                // 3. 0.5秒後に自動で次の画面（次の問題）へ進む
+                // ==========================================
+                setTimeout(() => {
+                  this.end();
+                }, 500); // 1000ミリ秒 = 1秒（長さを変えたい場合はここを調整してください）
 
-}
+              }
             },
             "title": "Feedback",
             "skip": true
@@ -2318,67 +2318,67 @@ setTimeout(() => {
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-// ==========================================
-// 1. 変数と要素の定義（★ここを修正します）
-// ==========================================
-let timeLeft = 10; 
+              ) {
+                // ==========================================
+                // 1. 変数と要素の定義（★ここを修正します）
+                // ==========================================
+                let timeLeft = 10;
 
-const countdownArea = document.getElementById('countdown-area');
-const countdownNumber = document.getElementById('countdown-number');
-const choiceArea = document.getElementById('choice-area');
-const radios = choiceArea.querySelectorAll('input[type="radio"]');
-const quizCounter = document.getElementById('quiz-counter');
+                const countdownArea = document.getElementById('countdown-area');
+                const countdownNumber = document.getElementById('countdown-number');
+                const choiceArea = document.getElementById('choice-area');
+                const radios = choiceArea.querySelectorAll('input[type="radio"]');
+                const quizCounter = document.getElementById('quiz-counter');
 
-// 💡 実験全体で使うカウンターがまだ無ければ「0」で作る
-if (typeof window.globalQuizCount === 'undefined') {
-  window.globalQuizCount = 0;
-}
+                // 💡 実験全体で使うカウンターがまだ無ければ「0」で作る
+                if (typeof window.globalQuizCount === 'undefined') {
+                  window.globalQuizCount = 0;
+                }
 
-// 画面が表示されるたびに、カウンターを「+1」する
-window.globalQuizCount++;
+                // 画面が表示されるたびに、カウンターを「+1」する
+                window.globalQuizCount++;
 
-// 画面に「◯問目」と表示
-quizCounter.innerText = `${window.globalQuizCount}問目`;
+                // 画面に「◯問目」と表示
+                quizCounter.innerText = `${window.globalQuizCount}問目`;
 
 
-// ==========================================
-// 2. カウントダウンタイマーの設定（ここから下は変更なし）
-// ==========================================
-const timer = setInterval(() => {
-  timeLeft--;
+                // ==========================================
+                // 2. カウントダウンタイマーの設定（ここから下は変更なし）
+                // ==========================================
+                const timer = setInterval(() => {
+                  timeLeft--;
 
-  if (timeLeft <= 3 && timeLeft > 0) {
-    countdownArea.style.display = 'block'; 
-    countdownNumber.innerText = timeLeft; 
-  }
+                  if (timeLeft <= 3 && timeLeft > 0) {
+                    countdownArea.style.display = 'block';
+                    countdownNumber.innerText = timeLeft;
+                  }
 
-  if (timeLeft <= 0) {
-    clearInterval(timer);
-    this.data.correct = false; 
-    this.end(); 
-  }
-}, 1000);
+                  if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    this.data.correct = false;
+                    this.end();
+                  }
+                }, 1000);
 
-// ==========================================
-// 3. 選択肢（⭕️/❌️）がクリックされた時の処理（変更なし）
-// ==========================================
-radios.forEach(radio => {
-  radio.addEventListener('click', (event) => {
-    clearInterval(timer);
+                // ==========================================
+                // 3. 選択肢（⭕️/❌️）がクリックされた時の処理（変更なし）
+                // ==========================================
+                radios.forEach(radio => {
+                  radio.addEventListener('click', (event) => {
+                    clearInterval(timer);
 
-    const userAnswer = event.target.value;
-    this.data.response = userAnswer;
+                    const userAnswer = event.target.value;
+                    this.data.response = userAnswer;
 
-    const correctAnswer = this.parameters.seikai; 
-    this.data.correct = (userAnswer === correctAnswer); 
+                    const correctAnswer = this.parameters.seikai;
+                    this.data.correct = (userAnswer === correctAnswer);
 
-    setTimeout(() => {
-      this.end();
-    }, 150);
-  });
-});
-}
+                    setTimeout(() => {
+                      this.end();
+                    }, 150);
+                  });
+                });
+              }
             },
             "title": "Showquiz",
             "timeout": "10000",
@@ -2407,33 +2407,33 @@ radios.forEach(radio => {
             "parameters": {},
             "messageHandlers": {
               "run": function anonymous(
-) {
-// ==========================================
-// 1. 直前の画面の正誤判定を取得
-// ==========================================
-// lab.jsが保存した一番最後の試行データ（正誤）を確認します
-const isCorrect = this.state.correct;
+              ) {
+                // ==========================================
+                // 1. 直前の画面の正誤判定を取得
+                // ==========================================
+                // lab.jsが保存した一番最後の試行データ（正誤）を確認します
+                const isCorrect = this.state.correct;
 
-const correctArea = document.getElementById('feedback-correct');
-const incorrectArea = document.getElementById('feedback-incorrect');
+                const correctArea = document.getElementById('feedback-correct');
+                const incorrectArea = document.getElementById('feedback-incorrect');
 
-// ==========================================
-// 2. 判定に合わせて画面の表示を切り替え
-// ==========================================
-if (isCorrect === true) {
-  correctArea.style.display = 'block';   // 正解を表示
-} else {
-  incorrectArea.style.display = 'block'; // 不正解（または時間切れ）を表示
-}
+                // ==========================================
+                // 2. 判定に合わせて画面の表示を切り替え
+                // ==========================================
+                if (isCorrect === true) {
+                  correctArea.style.display = 'block';   // 正解を表示
+                } else {
+                  incorrectArea.style.display = 'block'; // 不正解（または時間切れ）を表示
+                }
 
-// ==========================================
-// 3. 0.5秒後に自動で次の画面（次の問題）へ進む
-// ==========================================
-setTimeout(() => {
-  this.end();
-}, 500); // 1000ミリ秒 = 1秒（長さを変えたい場合はここを調整してください）
+                // ==========================================
+                // 3. 0.5秒後に自動で次の画面（次の問題）へ進む
+                // ==========================================
+                setTimeout(() => {
+                  this.end();
+                }, 500); // 1000ミリ秒 = 1秒（長さを変えたい場合はここを調整してください）
 
-}
+              }
             },
             "title": "Feedback",
             "skip": true
@@ -2476,33 +2476,33 @@ setTimeout(() => {
       "parameters": {},
       "messageHandlers": {
         "before:prepare": function anonymous(
-) {
-// ==========================================
-// Result_Quiz画面: 解説書のスマートな手法を採用
-// ==========================================
+        ) {
+          // ==========================================
+          // Result_Quiz画面: 解説書のスマートな手法を採用
+          // ==========================================
 
-const ds = this.options.datastore;
+          const ds = this.options.datastore;
 
-// 初期値のリセット
-this.state.quiz_correct_count = 0;
-this.state.quiz_total_count = 0;
+          // 初期値のリセット
+          this.state.quiz_correct_count = 0;
+          this.state.quiz_total_count = 0;
 
-if (ds && ds.data) {
-  // ① 解説書の手法(2) を使い、Showquiz の行だけを美しく抽出
-  const quizRows = ds.data.filter(r => r.sender === 'Showquiz');
+          if (ds && ds.data) {
+            // ① 解説書の手法(2) を使い、Showquiz の行だけを美しく抽出
+            const quizRows = ds.data.filter(r => r.sender === 'Showquiz');
 
-  if (quizRows.length > 0) {
-    this.state.quiz_total_count = quizRows.length;
+            if (quizRows.length > 0) {
+              this.state.quiz_total_count = quizRows.length;
 
-    // ② 正解（correct が true、"true"、1 のいずれか）の行を絞り込む
-    const correctRows = quizRows.filter(r => {
-      return r.correct === true || r.correct === 'true' || r.correct === 1 || r.correct === '1';
-    });
-    
-    this.state.quiz_correct_count = correctRows.length;
-  }
-}
-}
+              // ② 正解（correct が true、"true"、1 のいずれか）の行を絞り込む
+              const correctRows = quizRows.filter(r => {
+                return r.correct === true || r.correct === 'true' || r.correct === 1 || r.correct === '1';
+              });
+
+              this.state.quiz_correct_count = correctRows.length;
+            }
+          }
+        }
       },
       "title": "Result_Quiz",
       "tardy": true
@@ -2770,29 +2770,29 @@ if (ds && ds.data) {
       "parameters": {},
       "messageHandlers": {
         "before:prepare": function anonymous(
-) {
-//check Tardy
-//ファイル名をランダムIDにする
-const participantID = this.random.uuid4()
+        ) {
+          //check Tardy
+          //ファイル名をランダムIDにする
+          const participantID = this.random.uuid4()
 
-//csvファイルで保存する場合
-const filename = participantID + "_data.csv"
-const data = study.internals.controller.datastore.exportCsv();
+          //csvファイルで保存する場合
+          const filename = participantID + "_data.csv"
+          const data = study.internals.controller.datastore.exportCsv();
 
-fetch("https://pipe.jspsych.org/api/data/", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "*/*",
-  },
-  body: JSON.stringify({
-    experimentID: "yyn030QFLC1h",
-    filename: filename,
-    data: data,
-  }),
-});
+          fetch("https://pipe.jspsych.org/api/data/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "*/*",
+            },
+            body: JSON.stringify({
+              experimentID: "yyn030QFLC1h",
+              filename: filename,
+              data: data,
+            }),
+          });
 
-}
+        }
       },
       "title": "Bye",
       "tardy": true
